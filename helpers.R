@@ -16,7 +16,7 @@ generate_random_cities = function(n = 10, min_dist = 250, usa_only=FALSE) {
 
   while (nrow(cities) < n & i < nrow(all_cities)) {
     candidate = candidates[sample(nrow(candidates), 1),]
-    candidate_dist_matrix = distm(rbind(cities, candidate)[, c("long", "lat")]) * miles_per_meter
+    candidate_dist_matrix = geosphere::distm(rbind(cities, candidate)[, c("long", "lat")]) * miles_per_meter
 
     if (min(candidate_dist_matrix[candidate_dist_matrix > 0]) > min_dist) {
       cities = rbind(cities, candidate)
@@ -157,3 +157,4 @@ seed_cities = c(
   "London, UK",
   "New York, USA"
 )
+
