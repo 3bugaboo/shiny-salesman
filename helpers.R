@@ -1,7 +1,7 @@
 miles_per_meter = 100 / 2.54 / 12 / 5280
 
 if (!exists("all_cities")) all_cities = readRDS("data/cities.rds")
-if (!exists("usa_cities")) usa_cities = readRDS("data/usa_cities.rds")
+if (!exists("usa_cities")) usa_cities = readRDS("data/daria_data.rds")
 
 generate_random_cities = function(n = 10, min_dist = 250, usa_only=FALSE) {
   if (usa_only) {

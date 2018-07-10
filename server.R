@@ -1,4 +1,4 @@
-library(shiny)
+library(shiny)#this app works
 library(maps)
 library(geosphere)
 source("helpers.R")
@@ -15,13 +15,13 @@ shinyServer(function(input, output, session) {
   })
   
   city_choices = reactive({
+    
     if (map_name() == "world") {
       return(all_cities)
     } else if (map_name() == "usa") {
       return(usa_cities)
     }
-  })
-  
+  })  
   update_allowed_cities = observe({
     if (isolate(input$go_button) == 0 & isolate(set_random_cities()) == 0 & map_name() == "world") return()
     
